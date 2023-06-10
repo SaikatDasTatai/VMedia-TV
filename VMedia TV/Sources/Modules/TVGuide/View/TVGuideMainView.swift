@@ -7,6 +7,6 @@
 
 import UIKit
 
-class TVGuideMainView: UIView {
+class TVGuideMainView: BaseView {
     // TODO: Implement the collectionView
 }

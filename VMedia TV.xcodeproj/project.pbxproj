@@ -21,6 +21,7 @@
 		BDCDC4BA2A347C9D0077E99A /* ViewConstructable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4B92A347C9D0077E99A /* ViewConstructable.swift */; };
 		BDCDC4BD2A3486FE0077E99A /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4BC2A3486FE0077E99A /* NSLayoutConstraint+Extension.swift */; };
 		BDCDC4BF2A34882B0077E99A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4BE2A34882B0077E99A /* UIView+Extension.swift */; };
+		BDCDC4C22A348C890077E99A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4C12A348C890077E99A /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		BDCDC4B92A347C9D0077E99A /* ViewConstructable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstructable.swift; sourceTree = "<group>"; };
 		BDCDC4BC2A3486FE0077E99A /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
 		BDCDC4BE2A34882B0077E99A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BDCDC4C12A348C890077E99A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 		BDCDC4B52A347B560077E99A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				BDCDC4C02A348C740077E99A /* BaseView */,
 				BDCDC4B62A347B5C0077E99A /* BaseViewController */,
 			);
 			path = Base;
@@ -220,6 +223,14 @@
 				BDCDC4BE2A34882B0077E99A /* UIView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BDCDC4C02A348C740077E99A /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				BDCDC4C12A348C890077E99A /* BaseView.swift */,
+			);
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +370,7 @@
 				BDCDC4B22A346E040077E99A /* TVGuideMainView.swift in Sources */,
 				BDCDC4BA2A347C9D0077E99A /* ViewConstructable.swift in Sources */,
 				BDCDC4812A3465470077E99A /* TVGuideViewController.swift in Sources */,
+				BDCDC4C22A348C890077E99A /* BaseView.swift in Sources */,
 				BDCDC47D2A3465470077E99A /* AppDelegate.swift in Sources */,
 				BDCDC47F2A3465470077E99A /* SceneDelegate.swift in Sources */,
 			);
