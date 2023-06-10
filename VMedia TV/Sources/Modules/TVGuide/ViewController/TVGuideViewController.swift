@@ -20,7 +20,7 @@ class TVGuideViewController: BaseViewController {
         super.constructView()
         
         // Style background view
-        mainView.backgroundColor = .red
+        mainView.backgroundColor = .clear
     }
     
     override func constructSubviewHierarchy() {

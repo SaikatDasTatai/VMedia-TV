@@ -14,14 +14,7 @@ class CompositionLayout: UICollectionViewCompositionalLayout {
 
     init<Section: Hashable, Row: Hashable>(dataSource: UICollectionViewDiffableDataSource<Section, Row>) {
         super.init { sectionIndex, _ in
-            let sectionIdentifiers = dataSource.snapshot().sectionIdentifiers
-
-            guard sectionIndex < sectionIdentifiers.count else {
-                return .automaticLayoutDimensions()
-            }
-
-            let section = sectionIdentifiers[sectionIndex]
-            return section as? NSCollectionLayoutSection
+            .automaticLayoutDimensions()
         }
     }
 

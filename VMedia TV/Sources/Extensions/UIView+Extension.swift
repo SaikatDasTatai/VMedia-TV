@@ -23,3 +23,9 @@ extension UIView {
         subviews.forEach { addAutoLayoutSubview($0) }
     }
 }
+
+extension UIView {
+    static var reuseIdentifier: String {
+        String(describing: self)
+    }
+}

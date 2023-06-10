@@ -38,6 +38,11 @@ class TVGuideMainView: BaseView {
             $0.backgroundColor = .clear
             $0.showsVerticalScrollIndicator = false
             $0.showsHorizontalScrollIndicator = false
+            $0.registerCell(ProgramViewCell.self)
+            $0.register(
+                HeaderView.self,
+                ofKind: UICollectionView.elementKindSectionHeader
+            )
 
             // Custom layout for collection view
             guard let self else { return }
@@ -52,6 +57,7 @@ class TVGuideMainView: BaseView {
 
     override func constructSubviewHierarchy() {
         super.constructSubviewHierarchy()
+        
         // Add collection view to view sub-hierarchy
         addAutoLayoutSubview(collectionView)
     }
@@ -66,6 +72,21 @@ class TVGuideMainView: BaseView {
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         )
+        
+        let model: Model = .mock
+        
+        var snapshot = Snapshot()
+        snapshot.appendSections(model.items.compactMap { $0.section })
+        model.items.forEach {
+            snapshot.appendItems($0.rows, toSection: $0.section)
+        }
+        
+        // NOTE: Validate sectionIdentifiers before applying snapshot
+        if snapshot.sectionIdentifiers.isEmpty {
+            collectionView.collectionViewLayout.invalidateLayout()
+        }
+        
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 
@@ -84,6 +105,7 @@ extension TVGuideMainView {
             else {
                 fatalError("could not dequeue reusable supplementaryView view of type: \(HeaderView.self)")
             }
+            view.model = .init(channel: "Fox")
             return view
         }
     }
@@ -111,7 +133,7 @@ extension TVGuideMainView {
     ///  - indexPath: represents indexPath of collection view.
     ///  - model: represents model for program cell.
     func program(from indexPath: IndexPath, model: ProgramView.Model) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "program", for: indexPath) as? ProgramViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProgramViewCell.self), for: indexPath) as? ProgramViewCell
         cell?.model = model
         return cell ?? UICollectionViewCell()
     }
@@ -148,5 +170,27 @@ extension TVGuideMainView {
     ///  - guide: represents guide cell with view `GuideView`
     enum Row: Equatable, Hashable {
         case program(ProgramView.Model)
+    }
+}
+
+extension TVGuideMainView.Model {
+    static var mock: Self {
+        .init(
+            items: [.init(
+                section: .header(.init()),
+                rows: [
+                    .program(.init(programName: "La Liga1")),
+                    .program(.init(programName: "La Liga2")),
+                    .program(.init(programName: "La Liga3")),
+                    .program(.init(programName: "La Liga4")),
+                    .program(.init(programName: "La Liga5")),
+                    .program(.init(programName: "La Liga6")),
+                    .program(.init(programName: "La Liga7")),
+                    .program(.init(programName: "La Liga8")),
+                    .program(.init(programName: "La Liga9")),
+                    .program(.init(programName: "La Liga10"))
+                ]
+            )]
+        )
     }
 }

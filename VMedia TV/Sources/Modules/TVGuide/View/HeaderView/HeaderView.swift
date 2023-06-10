@@ -1,5 +1,5 @@
 //
-//  ProgramView.swift
+//  HeaderView.swift
 //  VMedia TV
 //
 //  Created by Sd Saikat Das on 10/06/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProgramView: BaseView {
+class HeaderView: BaseCollectionReusableView {
     var model: Model? {
         didSet {
             guard let model else { return }
@@ -41,49 +41,17 @@ class ProgramView: BaseView {
     }
     
     func applyModel(model: Model) {
-        titleLabel.text = model.programName
+        titleLabel.text = model.channel
     }
 }
 
 // MARK: - Model
 
-extension ProgramView {
+extension HeaderView {
     /// - Model
     /// - Parameters:
     ///  -
     struct Model: Equatable, Hashable {
-        var programName: String?
-    }
-}
-
-class ProgramViewCell: BaseCollectionViewCell {
-    lazy var view = ProgramView()
-
-    var model: ProgramView.Model? {
-        didSet {
-            view.model = model
-        }
-    }
-    
-    override func constructSubviewHierarchy() {
-        super.constructSubviewHierarchy()
-        // Add view to contentView hierarchy.
-        contentView.addAutoLayoutSubview(view)
-    }
-
-    override func constructSubviewLayoutConstraints() {
-        super.constructSubviewLayoutConstraints()
-        // Add constraints to collection view Cell
-        NSLayoutConstraint.activate(
-            view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            view.topAnchor.constraint(equalTo: contentView.topAnchor),
-            view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        )
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        model = nil
+        var channel: String?
     }
 }
