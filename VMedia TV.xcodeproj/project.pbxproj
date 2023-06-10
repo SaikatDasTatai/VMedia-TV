@@ -16,6 +16,7 @@
 		BDCDC4942A3465490077E99A /* VMedia_TVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4932A3465490077E99A /* VMedia_TVTests.swift */; };
 		BDCDC49E2A3465490077E99A /* VMedia_TVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC49D2A3465490077E99A /* VMedia_TVUITests.swift */; };
 		BDCDC4A02A3465490077E99A /* VMedia_TVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC49F2A3465490077E99A /* VMedia_TVUITestsLaunchTests.swift */; };
+		BDCDC4B22A346E040077E99A /* TVGuideMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4B12A346E040077E99A /* TVGuideMainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		BDCDC4992A3465490077E99A /* VMedia TVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VMedia TVUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCDC49D2A3465490077E99A /* VMedia_TVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMedia_TVUITests.swift; sourceTree = "<group>"; };
 		BDCDC49F2A3465490077E99A /* VMedia_TVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMedia_TVUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BDCDC4B12A346E040077E99A /* TVGuideMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGuideMainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		BDCDC4AF2A3469B90077E99A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BDCDC4B12A346E040077E99A /* TVGuideMainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDCDC4B22A346E040077E99A /* TVGuideMainView.swift in Sources */,
 				BDCDC4812A3465470077E99A /* TVGuideViewController.swift in Sources */,
 				BDCDC47D2A3465470077E99A /* AppDelegate.swift in Sources */,
 				BDCDC47F2A3465470077E99A /* SceneDelegate.swift in Sources */,

@@ -12,8 +12,8 @@ class TVGuideViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let mainView = TVGuideMainView()
+        view.addSubview(mainView)
     }
-
-
 }
 
