@@ -20,7 +20,7 @@ import UIKit
 /// **Note:** Subclasses should be sure to call the superclass implementation when overriding these methods.
 ///
 
-class BaseViewController: UIViewController, ViewConstructable {
+public class BaseViewController: UIViewController, ViewConstructable {
 
     open override func viewDidLoad() {
         super.viewDidLoad()

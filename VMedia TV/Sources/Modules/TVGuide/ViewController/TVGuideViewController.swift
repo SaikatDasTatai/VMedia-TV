@@ -25,20 +25,20 @@ class TVGuideViewController: BaseViewController {
     
     override func constructSubviewHierarchy() {
         super.constructSubviewHierarchy()
-        mainView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(mainView)
+        
+        view.addAutoLayoutSubview(mainView)
     }
     
     override func constructSubviewLayoutConstraints() {
         super.constructSubviewLayoutConstraints()
 
         // Add constraints to background view
-        NSLayoutConstraint.activate([
+        NSLayoutConstraint.activate(
             mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainView.topAnchor.constraint(equalTo: view.topAnchor),
             mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        )
     }
 }
 
