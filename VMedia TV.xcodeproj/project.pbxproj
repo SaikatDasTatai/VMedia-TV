@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BDCDC47D2A3465470077E99A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC47C2A3465470077E99A /* AppDelegate.swift */; };
+		BDCDC47F2A3465470077E99A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC47E2A3465470077E99A /* SceneDelegate.swift */; };
+		BDCDC4812A3465470077E99A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4802A3465470077E99A /* ViewController.swift */; };
+		BDCDC4842A3465470077E99A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDCDC4822A3465470077E99A /* Main.storyboard */; };
+		BDCDC4862A3465480077E99A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCDC4852A3465480077E99A /* Assets.xcassets */; };
+		BDCDC4892A3465480077E99A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDCDC4872A3465480077E99A /* LaunchScreen.storyboard */; };
+		BDCDC4942A3465490077E99A /* VMedia_TVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4932A3465490077E99A /* VMedia_TVTests.swift */; };
+		BDCDC49E2A3465490077E99A /* VMedia_TVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC49D2A3465490077E99A /* VMedia_TVUITests.swift */; };
+		BDCDC4A02A3465490077E99A /* VMedia_TVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC49F2A3465490077E99A /* VMedia_TVUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDCDC4902A3465490077E99A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDCDC4712A3465470077E99A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDCDC4782A3465470077E99A;
+			remoteInfo = "VMedia TV";
+		};
+		BDCDC49A2A3465490077E99A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDCDC4712A3465470077E99A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDCDC4782A3465470077E99A;
+			remoteInfo = "VMedia TV";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BDCDC4792A3465470077E99A /* VMedia TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VMedia TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCDC47C2A3465470077E99A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BDCDC47E2A3465470077E99A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BDCDC4802A3465470077E99A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BDCDC4832A3465470077E99A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BDCDC4852A3465480077E99A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDCDC4882A3465480077E99A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BDCDC48A2A3465480077E99A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDCDC48F2A3465490077E99A /* VMedia TVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VMedia TVTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCDC4932A3465490077E99A /* VMedia_TVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMedia_TVTests.swift; sourceTree = "<group>"; };
+		BDCDC4992A3465490077E99A /* VMedia TVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VMedia TVUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCDC49D2A3465490077E99A /* VMedia_TVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMedia_TVUITests.swift; sourceTree = "<group>"; };
+		BDCDC49F2A3465490077E99A /* VMedia_TVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMedia_TVUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDCDC4762A3465470077E99A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCDC48C2A3465490077E99A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCDC4962A3465490077E99A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDCDC4702A3465470077E99A = {
+			isa = PBXGroup;
+			children = (
+				BDCDC47B2A3465470077E99A /* VMedia TV */,
+				BDCDC4922A3465490077E99A /* VMedia TVTests */,
+				BDCDC49C2A3465490077E99A /* VMedia TVUITests */,
+				BDCDC47A2A3465470077E99A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BDCDC47A2A3465470077E99A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDCDC4792A3465470077E99A /* VMedia TV.app */,
+				BDCDC48F2A3465490077E99A /* VMedia TVTests.xctest */,
+				BDCDC4992A3465490077E99A /* VMedia TVUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDCDC47B2A3465470077E99A /* VMedia TV */ = {
+			isa = PBXGroup;
+			children = (
+				BDCDC47C2A3465470077E99A /* AppDelegate.swift */,
+				BDCDC47E2A3465470077E99A /* SceneDelegate.swift */,
+				BDCDC4802A3465470077E99A /* ViewController.swift */,
+				BDCDC4822A3465470077E99A /* Main.storyboard */,
+				BDCDC4852A3465480077E99A /* Assets.xcassets */,
+				BDCDC4872A3465480077E99A /* LaunchScreen.storyboard */,
+				BDCDC48A2A3465480077E99A /* Info.plist */,
+			);
+			path = "VMedia TV";
+			sourceTree = "<group>";
+		};
+		BDCDC4922A3465490077E99A /* VMedia TVTests */ = {
+			isa = PBXGroup;
+			children = (
+				BDCDC4932A3465490077E99A /* VMedia_TVTests.swift */,
+			);
+			path = "VMedia TVTests";
+			sourceTree = "<group>";
+		};
+		BDCDC49C2A3465490077E99A /* VMedia TVUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BDCDC49D2A3465490077E99A /* VMedia_TVUITests.swift */,
+				BDCDC49F2A3465490077E99A /* VMedia_TVUITestsLaunchTests.swift */,
+			);
+			path = "VMedia TVUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDCDC4782A3465470077E99A /* VMedia TV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDCDC4A32A3465490077E99A /* Build configuration list for PBXNativeTarget "VMedia TV" */;
+			buildPhases = (
+				BDCDC4752A3465470077E99A /* Sources */,
+				BDCDC4762A3465470077E99A /* Frameworks */,
+				BDCDC4772A3465470077E99A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VMedia TV";
+			productName = "VMedia TV";
+			productReference = BDCDC4792A3465470077E99A /* VMedia TV.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDCDC48E2A3465490077E99A /* VMedia TVTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDCDC4A62A3465490077E99A /* Build configuration list for PBXNativeTarget "VMedia TVTests" */;
+			buildPhases = (
+				BDCDC48B2A3465490077E99A /* Sources */,
+				BDCDC48C2A3465490077E99A /* Frameworks */,
+				BDCDC48D2A3465490077E99A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDCDC4912A3465490077E99A /* PBXTargetDependency */,
+			);
+			name = "VMedia TVTests";
+			productName = "VMedia TVTests";
+			productReference = BDCDC48F2A3465490077E99A /* VMedia TVTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BDCDC4982A3465490077E99A /* VMedia TVUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDCDC4A92A3465490077E99A /* Build configuration list for PBXNativeTarget "VMedia TVUITests" */;
+			buildPhases = (
+				BDCDC4952A3465490077E99A /* Sources */,
+				BDCDC4962A3465490077E99A /* Frameworks */,
+				BDCDC4972A3465490077E99A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDCDC49B2A3465490077E99A /* PBXTargetDependency */,
+			);
+			name = "VMedia TVUITests";
+			productName = "VMedia TVUITests";
+			productReference = BDCDC4992A3465490077E99A /* VMedia TVUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDCDC4712A3465470077E99A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					BDCDC4782A3465470077E99A = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					BDCDC48E2A3465490077E99A = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = BDCDC4782A3465470077E99A;
+					};
+					BDCDC4982A3465490077E99A = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = BDCDC4782A3465470077E99A;
+					};
+				};
+			};
+			buildConfigurationList = BDCDC4742A3465470077E99A /* Build configuration list for PBXProject "VMedia TV" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDCDC4702A3465470077E99A;
+			productRefGroup = BDCDC47A2A3465470077E99A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDCDC4782A3465470077E99A /* VMedia TV */,
+				BDCDC48E2A3465490077E99A /* VMedia TVTests */,
+				BDCDC4982A3465490077E99A /* VMedia TVUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDCDC4772A3465470077E99A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCDC4892A3465480077E99A /* LaunchScreen.storyboard in Resources */,
+				BDCDC4862A3465480077E99A /* Assets.xcassets in Resources */,
+				BDCDC4842A3465470077E99A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCDC48D2A3465490077E99A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCDC4972A3465490077E99A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDCDC4752A3465470077E99A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCDC4812A3465470077E99A /* ViewController.swift in Sources */,
+				BDCDC47D2A3465470077E99A /* AppDelegate.swift in Sources */,
+				BDCDC47F2A3465470077E99A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCDC48B2A3465490077E99A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCDC4942A3465490077E99A /* VMedia_TVTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCDC4952A3465490077E99A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCDC4A02A3465490077E99A /* VMedia_TVUITestsLaunchTests.swift in Sources */,
+				BDCDC49E2A3465490077E99A /* VMedia_TVUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDCDC4912A3465490077E99A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDCDC4782A3465470077E99A /* VMedia TV */;
+			targetProxy = BDCDC4902A3465490077E99A /* PBXContainerItemProxy */;
+		};
+		BDCDC49B2A3465490077E99A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDCDC4782A3465470077E99A /* VMedia TV */;
+			targetProxy = BDCDC49A2A3465490077E99A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BDCDC4822A3465470077E99A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDCDC4832A3465470077E99A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BDCDC4872A3465480077E99A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDCDC4882A3465480077E99A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BDCDC4A12A3465490077E99A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDCDC4A22A3465490077E99A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDCDC4A42A3465490077E99A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "VMedia TV/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tech.Enthusiast.Saikat.VMedia-TV";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDCDC4A52A3465490077E99A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "VMedia TV/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tech.Enthusiast.Saikat.VMedia-TV";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BDCDC4A72A3465490077E99A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tech.Enthusiast.Saikat.VMedia-TVTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VMedia TV.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VMedia TV";
+			};
+			name = Debug;
+		};
+		BDCDC4A82A3465490077E99A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tech.Enthusiast.Saikat.VMedia-TVTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VMedia TV.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VMedia TV";
+			};
+			name = Release;
+		};
+		BDCDC4AA2A3465490077E99A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tech.Enthusiast.Saikat.VMedia-TVUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "VMedia TV";
+			};
+			name = Debug;
+		};
+		BDCDC4AB2A3465490077E99A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tech.Enthusiast.Saikat.VMedia-TVUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "VMedia TV";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDCDC4742A3465470077E99A /* Build configuration list for PBXProject "VMedia TV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCDC4A12A3465490077E99A /* Debug */,
+				BDCDC4A22A3465490077E99A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDCDC4A32A3465490077E99A /* Build configuration list for PBXNativeTarget "VMedia TV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCDC4A42A3465490077E99A /* Debug */,
+				BDCDC4A52A3465490077E99A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDCDC4A62A3465490077E99A /* Build configuration list for PBXNativeTarget "VMedia TVTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCDC4A72A3465490077E99A /* Debug */,
+				BDCDC4A82A3465490077E99A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDCDC4A92A3465490077E99A /* Build configuration list for PBXNativeTarget "VMedia TVUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCDC4AA2A3465490077E99A /* Debug */,
+				BDCDC4AB2A3465490077E99A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDCDC4712A3465470077E99A /* Project object */;
+}
