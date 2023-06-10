@@ -32,7 +32,7 @@ class TVGuideViewController: BaseViewController {
     override func constructSubviewLayoutConstraints() {
         super.constructSubviewLayoutConstraints()
 
-        // Add constraints to background view
+        // Add constraints to view
         NSLayoutConstraint.activate(
             mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
