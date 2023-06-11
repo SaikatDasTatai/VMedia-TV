@@ -19,7 +19,7 @@ class ProgramView: BaseView {
     override func constructView() {
         super.constructView()
         
-        backgroundColor = .clear
+        backgroundColor = .white
     }
     
     override func constructSubviewHierarchy() {

@@ -19,7 +19,7 @@ class HeaderView: BaseCollectionReusableView {
     override func constructView() {
         super.constructView()
         
-        backgroundColor = .clear
+        backgroundColor = .white
     }
     
     override func constructSubviewHierarchy() {

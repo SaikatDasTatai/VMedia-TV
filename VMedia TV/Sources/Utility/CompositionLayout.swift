@@ -27,23 +27,36 @@ class CompositionLayout: UICollectionViewCompositionalLayout {
 extension NSCollectionLayoutSection {
     static func automaticLayoutDimensions(
         insets: NSDirectionalEdgeInsets = .defaultInsets(),
-        interItemSpacing: CGFloat = 16
+        interItemSpacing: CGFloat = Spacing.space8
     ) ->
         NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(layoutSize: .itemSize)
-
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: .itemSize,
-            subitems: [item]
-        )
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = interItemSpacing
-
-        section.contentInsets = insets
+            
+            let item = NSCollectionLayoutItem(layoutSize: .itemSize)
+            
+            var groups: [NSCollectionLayoutGroup] = []
+            for _ in 0..<1 {
+                let group = NSCollectionLayoutGroup.horizontal(
+                    layoutSize: .itemSize,
+                    subitems: [item]
+                )
+                groups.append(group)
+            }
+            
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .absolute(Spacing.itemCellSize.width),
+                heightDimension: .absolute(Spacing.itemCellSize.height*15)
+            )
+            let group = NSCollectionLayoutGroup.vertical(
+                layoutSize: groupSize,
+                subitems: groups
+            )
+            let section = NSCollectionLayoutSection(group: group)
+            section.interGroupSpacing = interItemSpacing
+            section.contentInsets = insets
 
         // Header Supplimentary View
         section.boundarySupplementaryItems = [.header]
+        section.orthogonalScrollingBehavior = .continuous
 
         return section
     }
@@ -51,32 +64,51 @@ extension NSCollectionLayoutSection {
 
 extension NSCollectionLayoutSize {
     static var itemSize: Self {
-        let estimatedHeight: CGFloat = 1.0
-        let fractionalWidth: CGFloat = 1.0
+        let absoluteHeight: CGFloat = Spacing.itemCellSize.height
+        let absoluteWidth: CGFloat = Spacing.itemCellSize.width
 
         return .init(
-            widthDimension: .fractionalWidth(fractionalWidth),
-            heightDimension: .estimated(estimatedHeight)
+            widthDimension: .absolute(absoluteWidth),
+            heightDimension: .absolute(absoluteHeight)
+        )
+    }
+    
+    static var headerSize: Self {
+        let absoluteHeight: CGFloat = Spacing.headerCellSize.height
+        let absoluteWidth: CGFloat = Spacing.headerCellSize.width
+
+        return .init(
+            widthDimension: .absolute(absoluteWidth),
+            heightDimension: .absolute(absoluteHeight)
         )
     }
 }
 
 extension NSCollectionLayoutBoundarySupplementaryItem {
     static var header: Self {
-        .init(
-            layoutSize: .itemSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .topLeading
+        let headerLayoutSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(Spacing.headerCellSize.width),
+            heightDimension: .absolute(15 * Spacing.headerCellSize.height)
         )
+        let header: Self = .init(
+            layoutSize: headerLayoutSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .leading,
+            absoluteOffset: CGPoint(x: -Spacing.headerCellSize.width, y: 0)
+        )
+        header.pinToVisibleBounds = true
+        header.zIndex = 2
+        
+        return header
     }
 }
 
 extension NSDirectionalEdgeInsets {
     static func defaultInsets(
-        top: CGFloat = Spacing.space8,
-        leading: CGFloat = Spacing.space16,
-        bottom: CGFloat = Spacing.space8,
-        trailing: CGFloat = Spacing.space16
+        top: CGFloat = Spacing.zero,
+        leading: CGFloat = Spacing.itemCellSize.width,
+        bottom: CGFloat = Spacing.zero,
+        trailing: CGFloat = Spacing.zero
     ) -> NSDirectionalEdgeInsets {
         .init(
             top: top,
@@ -88,6 +120,14 @@ extension NSDirectionalEdgeInsets {
 }
 
 struct Spacing {
+    struct Size {
+        let height: CGFloat
+        let width: CGFloat
+    }
+    static let space4: CGFloat = 4
+    static let zero: CGFloat = 0
     static let space8: CGFloat = 8
     static let space16: CGFloat = 16
+    static let headerCellSize: Size = .init(height: 60, width: 120)
+    static let itemCellSize: Size = .init(height: 60, width: 140)
 }

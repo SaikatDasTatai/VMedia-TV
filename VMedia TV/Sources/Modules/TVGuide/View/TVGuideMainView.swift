@@ -35,7 +35,7 @@ class TVGuideMainView: BaseView {
         // Style collection view
         apply(collectionView) { [weak self] in
             $0.bounces = false
-            $0.backgroundColor = .clear
+            $0.backgroundColor = .blue
             $0.showsVerticalScrollIndicator = false
             $0.showsHorizontalScrollIndicator = false
             $0.registerCell(ProgramViewCell.self)
@@ -105,7 +105,7 @@ extension TVGuideMainView {
             else {
                 fatalError("could not dequeue reusable supplementaryView view of type: \(HeaderView.self)")
             }
-            view.model = .init(channel: "Fox")
+            view.model = .init(channel: "Fox" + (1...10000).randomElement()!.description)
             return view
         }
     }
@@ -176,21 +176,53 @@ extension TVGuideMainView {
 extension TVGuideMainView.Model {
     static var mock: Self {
         .init(
-            items: [.init(
-                section: .header(.init()),
-                rows: [
-                    .program(.init(programName: "La Liga1")),
-                    .program(.init(programName: "La Liga2")),
-                    .program(.init(programName: "La Liga3")),
-                    .program(.init(programName: "La Liga4")),
-                    .program(.init(programName: "La Liga5")),
-                    .program(.init(programName: "La Liga6")),
-                    .program(.init(programName: "La Liga7")),
-                    .program(.init(programName: "La Liga8")),
-                    .program(.init(programName: "La Liga9")),
-                    .program(.init(programName: "La Liga10"))
-                ]
-            )]
+            items: [
+                .init(
+                    section: .header(.init()),
+                    rows: [
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga3")),
+                        .program(.init(programName: "La Liga4")),
+                        .program(.init(programName: "La Liga5")),
+                        .program(.init(programName: "La Liga6")),
+                        .program(.init(programName: "La Liga7")),
+                        .program(.init(programName: "La Liga8")),
+                        .program(.init(programName: "La Liga9")),
+                        .program(.init(programName: "La Liga10")),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
+                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description))
+                    ]
+                )
+            ]
         )
     }
 }
