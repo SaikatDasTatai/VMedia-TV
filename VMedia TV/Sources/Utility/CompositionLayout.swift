@@ -45,7 +45,7 @@ extension NSCollectionLayoutSection {
             
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .absolute(Spacing.itemCellSize.width),
-                heightDimension: .absolute(Spacing.itemCellSize.height*15)
+                heightDimension: .absolute(Spacing.itemCellSize.height*29)
             )
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: groupSize,
@@ -89,7 +89,7 @@ extension NSCollectionLayoutBoundarySupplementaryItem {
     static var header: Self {
         let headerLayoutSize = NSCollectionLayoutSize(
             widthDimension: .absolute(Spacing.headerCellSize.width),
-            heightDimension: .absolute(15 * Spacing.headerCellSize.height)
+            heightDimension: .absolute(29 * Spacing.headerCellSize.height)
         )
         let header: Self = .init(
             layoutSize: headerLayoutSize,

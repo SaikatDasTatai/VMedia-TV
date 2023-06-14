@@ -29,6 +29,9 @@ class TVGuideMainView: BaseView {
         collectionViewLayout: CompositionLayout() // Default `init`
     )
     
+    var channelIDNameMapper: [Int: String] = [:]
+    var channelProgramMapper: [Int: [ProgramModel]] = [:]
+    
     override func constructView() {
         super.constructView()
 
@@ -73,20 +76,9 @@ class TVGuideMainView: BaseView {
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         )
         
-        let model: Model = .mock
+        //var model: Model = .mock
         
-        var snapshot = Snapshot()
-        snapshot.appendSections(model.items.compactMap { $0.section })
-        model.items.forEach {
-            snapshot.appendItems($0.rows, toSection: $0.section)
-        }
         
-        // NOTE: Validate sectionIdentifiers before applying snapshot
-        if snapshot.sectionIdentifiers.isEmpty {
-            collectionView.collectionViewLayout.invalidateLayout()
-        }
-        
-        dataSource.apply(snapshot, animatingDifferences: false)
         var channels: [ChannelModel] = []
         var programs: [ProgramModel] = []
         let group = DispatchGroup()
@@ -96,7 +88,7 @@ class TVGuideMainView: BaseView {
             case .success(let models):
                 channels = models
                 group.leave()
-            case .failure(let error):
+            case .failure(_):
                 channels = []
                 group.leave()
             }
@@ -107,15 +99,65 @@ class TVGuideMainView: BaseView {
             case .success(let models):
                 programs = models
                 group.leave()
-            case .failure(let error):
+            case .failure(_):
                 programs = []
                 group.leave()
             }
         }
+        
+        
 
-        group.notify(queue: .main) {
-            print("Done")
+        group.notify(queue: .main) { [weak self] in
+            guard let self = self else { return }
             
+            channels.forEach { self.channelIDNameMapper[$0.id] = $0.CallSign }
+            var countHighest = 0
+            programs.forEach { program in
+                var model = self.channelProgramMapper[program.recentAirTime.channelID] ?? []
+                model.append(program)
+                if model.count > countHighest {
+                    countHighest = model.count
+                }
+                self.channelProgramMapper[program.recentAirTime.channelID] = model
+            }
+            
+           
+            var rows: [Row] = []
+            
+            for _ in 0..<countHighest {
+                self.channelProgramMapper.keys.forEach { key in
+                    rows.append(
+                        .program(
+                            .init(
+                                programName: self.channelProgramMapper[key]?.first?.name ?? ""
+                            )
+                        )
+                    )
+                    self.channelProgramMapper[key] = Array(self.channelProgramMapper[key]?.dropFirst() ?? [])
+                }
+            }
+            
+            
+            
+            
+            let item: Items = .init(
+                section: .header(.init()),
+                rows: rows
+            )
+            let items:[Items] = [item]
+            let model: Model = .init(items: items)
+            var snapshot = Snapshot()
+            snapshot.appendSections(model.items.compactMap { $0.section })
+            model.items.forEach {
+                snapshot.appendItems($0.rows, toSection: $0.section)
+            }
+            
+            // NOTE: Validate sectionIdentifiers before applying snapshot
+            if snapshot.sectionIdentifiers.isEmpty {
+                self.collectionView.collectionViewLayout.invalidateLayout()
+            }
+            
+            self.dataSource.apply(snapshot, animatingDifferences: false)
         }
         
     }
@@ -136,19 +178,21 @@ extension TVGuideMainView {
             else {
                 fatalError("could not dequeue reusable supplementaryView view of type: \(HeaderView.self)")
             }
-            for index in 0..<15 {
+            var count = 0
+            for channel in self.channelProgramMapper {
                 let frame = CGRect(
                     x: 0,
-                    y: CGFloat(index) * 60 + 8,
+                    y: CGFloat(count) * 60 + 8,
                     width: 120,
                     height: 52
                 )
                 let headerInnerView = HeaderInnerView(frame: frame)
                 headerInnerView.constructSubviewLayoutConstraints()
-                headerInnerView.label.text = "Channels"
+                headerInnerView.label.text = self.channelIDNameMapper[channel.key]
                 headerInnerView.backgroundColor = .systemGroupedBackground
                 
                 view.addSubview(headerInnerView)
+                count += 1
             }
             return view
         }

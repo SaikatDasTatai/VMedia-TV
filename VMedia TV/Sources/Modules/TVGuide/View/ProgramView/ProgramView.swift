@@ -52,6 +52,7 @@ extension ProgramView {
     /// - Parameters:
     ///  -
     struct Model: Equatable, Hashable {
+        let id = UUID()
         var programName: String?
     }
 }
