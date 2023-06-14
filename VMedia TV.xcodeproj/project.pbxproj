@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		BD744B2D2A39F19500E1EB04 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD744B2C2A39F19500E1EB04 /* Coordinator.swift */; };
 		BD744B302A39F1DD00E1EB04 /* TVGuideCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD744B2F2A39F1DD00E1EB04 /* TVGuideCoordinator.swift */; };
+		BD7455DA2A39FF4600E1EB04 /* TVGuideDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455D92A39FF4600E1EB04 /* TVGuideDataSource.swift */; };
+		BD7455DD2A3A135900E1EB04 /* OrchestrationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455DC2A3A135900E1EB04 /* OrchestrationClient.swift */; };
+		BD7455DF2A3A149300E1EB04 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455DE2A3A149300E1EB04 /* NetworkClient.swift */; };
+		BD7455E22A3A3CD700E1EB04 /* TVGuidePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455E12A3A3CD700E1EB04 /* TVGuidePresentation.swift */; };
+		BD7455E42A3A3FD700E1EB04 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455E32A3A3FD700E1EB04 /* URLRequest+Extension.swift */; };
 		BDCDC47D2A3465470077E99A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC47C2A3465470077E99A /* AppDelegate.swift */; };
 		BDCDC47F2A3465470077E99A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC47E2A3465470077E99A /* SceneDelegate.swift */; };
 		BDCDC4812A3465470077E99A /* TVGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4802A3465470077E99A /* TVGuideViewController.swift */; };
@@ -53,6 +58,11 @@
 /* Begin PBXFileReference section */
 		BD744B2C2A39F19500E1EB04 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BD744B2F2A39F1DD00E1EB04 /* TVGuideCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGuideCoordinator.swift; sourceTree = "<group>"; };
+		BD7455D92A39FF4600E1EB04 /* TVGuideDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGuideDataSource.swift; sourceTree = "<group>"; };
+		BD7455DC2A3A135900E1EB04 /* OrchestrationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchestrationClient.swift; sourceTree = "<group>"; };
+		BD7455DE2A3A149300E1EB04 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		BD7455E12A3A3CD700E1EB04 /* TVGuidePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGuidePresentation.swift; sourceTree = "<group>"; };
+		BD7455E32A3A3FD700E1EB04 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 		BDCDC4792A3465470077E99A /* VMedia TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VMedia TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCDC47C2A3465470077E99A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDCDC47E2A3465470077E99A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +122,31 @@
 				BD744B2F2A39F1DD00E1EB04 /* TVGuideCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BD7455D72A39FF1A00E1EB04 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				BD7455D92A39FF4600E1EB04 /* TVGuideDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		BD7455DB2A3A0D3700E1EB04 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BD7455DC2A3A135900E1EB04 /* OrchestrationClient.swift */,
+				BD7455DE2A3A149300E1EB04 /* NetworkClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		BD7455E02A3A3C9E00E1EB04 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				BD7455E12A3A3CD700E1EB04 /* TVGuidePresentation.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		BDCDC4702A3465470077E99A = {
@@ -176,6 +211,7 @@
 		BDCDC4AD2A3468F80077E99A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				BD7455DB2A3A0D3700E1EB04 /* Networking */,
 				BDCDC4BB2A3486E60077E99A /* Extensions */,
 				BDCDC4B52A347B560077E99A /* Base */,
 				BDCDC4B42A346F4F0077E99A /* Utility */,
@@ -187,6 +223,8 @@
 		BDCDC4AE2A34698A0077E99A /* TVGuide */ = {
 			isa = PBXGroup;
 			children = (
+				BD7455E02A3A3C9E00E1EB04 /* Presentation */,
+				BD7455D72A39FF1A00E1EB04 /* DataSource */,
 				BD744B2E2A39F1C400E1EB04 /* Coordinator */,
 				BDCDC4B02A3469D20077E99A /* ViewController */,
 				BDCDC4AF2A3469B90077E99A /* View */,
@@ -255,6 +293,7 @@
 				BDCDC4BC2A3486FE0077E99A /* NSLayoutConstraint+Extension.swift */,
 				BDCDC4BE2A34882B0077E99A /* UIView+Extension.swift */,
 				BDCDC4CC2A34D3E10077E99A /* UICollectionView+Extension.swift */,
+				BD7455E32A3A3FD700E1EB04 /* URLRequest+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -423,17 +462,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD7455DD2A3A135900E1EB04 /* OrchestrationClient.swift in Sources */,
 				BDCDC4C42A3491D90077E99A /* ApplyFunction.swift in Sources */,
 				BDCDC4D32A34DF280077E99A /* UICollectionReusableView.swift in Sources */,
 				BDCDC4B82A347B900077E99A /* BaseViewController.swift in Sources */,
 				BDCDC4BD2A3486FE0077E99A /* NSLayoutConstraint+Extension.swift in Sources */,
 				BDCDC4CB2A349B750077E99A /* CompositionLayout.swift in Sources */,
 				BDCDC4BF2A34882B0077E99A /* UIView+Extension.swift in Sources */,
+				BD7455E42A3A3FD700E1EB04 /* URLRequest+Extension.swift in Sources */,
 				BDCDC4D02A34DC890077E99A /* BaseCollectionViewCell.swift in Sources */,
 				BD744B302A39F1DD00E1EB04 /* TVGuideCoordinator.swift in Sources */,
+				BD7455DA2A39FF4600E1EB04 /* TVGuideDataSource.swift in Sources */,
 				BDCDC4B22A346E040077E99A /* TVGuideMainView.swift in Sources */,
+				BD7455DF2A3A149300E1EB04 /* NetworkClient.swift in Sources */,
 				BDCDC4BA2A347C9D0077E99A /* ViewConstructable.swift in Sources */,
 				BDCDC4812A3465470077E99A /* TVGuideViewController.swift in Sources */,
+				BD7455E22A3A3CD700E1EB04 /* TVGuidePresentation.swift in Sources */,
 				BD744B2D2A39F19500E1EB04 /* Coordinator.swift in Sources */,
 				BDCDC4CD2A34D3E10077E99A /* UICollectionView+Extension.swift in Sources */,
 				BDCDC4C62A34952B0077E99A /* HeaderView.swift in Sources */,

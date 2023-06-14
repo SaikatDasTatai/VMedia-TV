@@ -5,15 +5,37 @@
 //  Created by Sd Saikat Das on 10/06/23.
 //
 
+import Combine
 import UIKit
 
-class TVGuideViewController: BaseViewController {
-    private lazy var mainView = TVGuideMainView()
 
+class TVGuideViewController: BaseViewController {
+    struct Model {
+        var tvGuideMainViewModel: TVGuideMainView.Model?
+    }
+    /// Represents store for publishers
+    private var store: Set<AnyCancellable> = []
+    /// Represents view controller's view model
+    private let modelPublisher: CurrentValueSubject<Model?, Never>
+    private lazy var mainView = TVGuideMainView()
+    
+    /// Initialises Base view controller with viewModel
+    init(modelPublisher: CurrentValueSubject<Model?, Never>) {
+        self.modelPublisher = modelPublisher
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        modelPublisher.sink { [self] model in
+            applyModel(model: model)
+        }.store(in: &store)
     }
     
     override func constructView() {
@@ -42,3 +64,10 @@ class TVGuideViewController: BaseViewController {
     }
 }
 
+extension TVGuideViewController {
+    func applyModel(model: Model?) {
+        guard let model = model else { return }
+        
+        mainView.model = model.tvGuideMainViewModel
+    }
+}

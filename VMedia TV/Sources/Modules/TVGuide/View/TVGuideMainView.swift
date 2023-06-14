@@ -29,6 +29,12 @@ class TVGuideMainView: BaseView {
         collectionViewLayout: CompositionLayout() // Default `init`
     )
     
+    var model: Model? {
+        didSet {
+            applyModel()
+        }
+    }
+    
     var channelIDNameMapper: [Int: String] = [:]
     var channelProgramMapper: [Int: [ProgramModel]] = [:]
     
@@ -160,6 +166,26 @@ class TVGuideMainView: BaseView {
             self.dataSource.apply(snapshot, animatingDifferences: false)
         }
         
+    }
+}
+
+extension TVGuideMainView {
+    /// apply any logic when model is set
+    func applyModel() {
+        guard let model = model else { return }
+        
+        var snapshot = Snapshot()
+        snapshot.appendSections(model.items.compactMap { $0.section })
+        model.items.forEach {
+            snapshot.appendItems($0.rows, toSection: $0.section)
+        }
+        
+        // NOTE: Validate sectionIdentifiers before applying snapshot
+        if snapshot.sectionIdentifiers.isEmpty {
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }
+        
+        self.dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 
@@ -315,47 +341,6 @@ extension TVGuideMainView.Model {
     }
 }
 
-
-
-extension URLSession {
-    func fetchData(url: URL, completionHandler: @escaping (Result<[ChannelModel], Error>)->()) {
-        dataTask(with: url) { data, response, error in
-            if let error = error {
-                completionHandler(.failure(error))
-            }
-            
-            if let data = data {
-                do {
-                    let decoder = JSONDecoder()
-                    let models = try decoder.decode([ChannelModel].self, from: data)
-                    completionHandler(.success(models))
-                } catch let error {
-                    completionHandler(.failure(error))
-                }
-                
-            }
-        }.resume()
-    }
-    
-    func fetchData(url: URL, completionHandler: @escaping (Result<[ProgramModel], Error>)->()) {
-        dataTask(with: url) { data, response, error in
-            if let error = error {
-                completionHandler(.failure(error))
-            }
-            
-            if let data = data {
-                do {
-                    let decoder = JSONDecoder()
-                    let models = try decoder.decode([ProgramModel].self, from: data)
-                    completionHandler(.success(models))
-                } catch let error {
-                    completionHandler(.failure(error))
-                }
-                
-            }
-        }.resume()
-    }
-}
 
 struct ChannelModel: Decodable {
     let orderNum: Int

@@ -22,7 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = presenter
             self.window = window
             window.makeKeyAndVisible()
-            let coordinator = TVGuideCoordinator(presenter: presenter)
+            let coordinator = TVGuideCoordinator(
+                presenter: presenter,
+                networkClient: OrchestrationClient()
+            )
             coordinator.start()
         }
     }
