@@ -9,7 +9,7 @@ import Foundation
 
 extension URLRequest {
     static var channelsAPI: Self {
-        .init(url: URL(string: URLPath.baseURL + URLPath.programItems)!)
+        .init(url: URL(string: URLPath.baseURL + URLPath.channels)!)
     }
     
     static var programsAPI: Self {

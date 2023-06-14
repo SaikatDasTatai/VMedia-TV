@@ -14,6 +14,7 @@
 		BD7455DF2A3A149300E1EB04 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455DE2A3A149300E1EB04 /* NetworkClient.swift */; };
 		BD7455E22A3A3CD700E1EB04 /* TVGuidePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455E12A3A3CD700E1EB04 /* TVGuidePresentation.swift */; };
 		BD7455E42A3A3FD700E1EB04 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455E32A3A3FD700E1EB04 /* URLRequest+Extension.swift */; };
+		BD7455E72A3A443500E1EB04 /* TVGuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455E62A3A443500E1EB04 /* TVGuideModel.swift */; };
 		BDCDC47D2A3465470077E99A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC47C2A3465470077E99A /* AppDelegate.swift */; };
 		BDCDC47F2A3465470077E99A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC47E2A3465470077E99A /* SceneDelegate.swift */; };
 		BDCDC4812A3465470077E99A /* TVGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4802A3465470077E99A /* TVGuideViewController.swift */; };
@@ -63,6 +64,7 @@
 		BD7455DE2A3A149300E1EB04 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		BD7455E12A3A3CD700E1EB04 /* TVGuidePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGuidePresentation.swift; sourceTree = "<group>"; };
 		BD7455E32A3A3FD700E1EB04 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
+		BD7455E62A3A443500E1EB04 /* TVGuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGuideModel.swift; sourceTree = "<group>"; };
 		BDCDC4792A3465470077E99A /* VMedia TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VMedia TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCDC47C2A3465470077E99A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDCDC47E2A3465470077E99A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		BD7455E52A3A441B00E1EB04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD7455E62A3A443500E1EB04 /* TVGuideModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BDCDC4702A3465470077E99A = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +233,7 @@
 		BDCDC4AE2A34698A0077E99A /* TVGuide */ = {
 			isa = PBXGroup;
 			children = (
+				BD7455E52A3A441B00E1EB04 /* Model */,
 				BD7455E02A3A3C9E00E1EB04 /* Presentation */,
 				BD7455D72A39FF1A00E1EB04 /* DataSource */,
 				BD744B2E2A39F1C400E1EB04 /* Coordinator */,
@@ -468,6 +479,7 @@
 				BDCDC4B82A347B900077E99A /* BaseViewController.swift in Sources */,
 				BDCDC4BD2A3486FE0077E99A /* NSLayoutConstraint+Extension.swift in Sources */,
 				BDCDC4CB2A349B750077E99A /* CompositionLayout.swift in Sources */,
+				BD7455E72A3A443500E1EB04 /* TVGuideModel.swift in Sources */,
 				BDCDC4BF2A34882B0077E99A /* UIView+Extension.swift in Sources */,
 				BD7455E42A3A3FD700E1EB04 /* URLRequest+Extension.swift in Sources */,
 				BDCDC4D02A34DC890077E99A /* BaseCollectionViewCell.swift in Sources */,

@@ -35,8 +35,7 @@ class TVGuideMainView: BaseView {
         }
     }
     
-    var channelIDNameMapper: [Int: String] = [:]
-    var channelProgramMapper: [Int: [ProgramModel]] = [:]
+    
     
     override func constructView() {
         super.constructView()
@@ -81,91 +80,6 @@ class TVGuideMainView: BaseView {
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         )
-        
-        //var model: Model = .mock
-        
-        
-        var channels: [ChannelModel] = []
-        var programs: [ProgramModel] = []
-        let group = DispatchGroup()
-        group.enter()
-        URLSession.shared.fetchData(url: URL(string: "https://demo-c.cdn.vmedia.ca/json/Channels")!) { result in
-            switch result {
-            case .success(let models):
-                channels = models
-                group.leave()
-            case .failure(_):
-                channels = []
-                group.leave()
-            }
-        }
-        group.enter()
-        URLSession.shared.fetchData(url: URL(string: "https://demo-c.cdn.vmedia.ca/json/ProgramItems")!) { result in
-            switch result {
-            case .success(let models):
-                programs = models
-                group.leave()
-            case .failure(_):
-                programs = []
-                group.leave()
-            }
-        }
-        
-        
-
-        group.notify(queue: .main) { [weak self] in
-            guard let self = self else { return }
-            
-            channels.forEach { self.channelIDNameMapper[$0.id] = $0.CallSign }
-            var countHighest = 0
-            programs.forEach { program in
-                var model = self.channelProgramMapper[program.recentAirTime.channelID] ?? []
-                model.append(program)
-                if model.count > countHighest {
-                    countHighest = model.count
-                }
-                self.channelProgramMapper[program.recentAirTime.channelID] = model
-            }
-            
-           
-            var rows: [Row] = []
-            
-            for _ in 0..<countHighest {
-                self.channelProgramMapper.keys.forEach { key in
-                    rows.append(
-                        .program(
-                            .init(
-                                programName: self.channelProgramMapper[key]?.first?.name ?? ""
-                            )
-                        )
-                    )
-                    self.channelProgramMapper[key] = Array(self.channelProgramMapper[key]?.dropFirst() ?? [])
-                }
-            }
-            
-            
-            
-            
-            let item: Items = .init(
-                section: .header(.init()),
-                rows: rows
-            )
-            let items:[Items] = [item]
-            let model: Model = .init(items: items)
-            var snapshot = Snapshot()
-            snapshot.appendSections(model.items.compactMap { $0.section })
-            model.items.forEach {
-                snapshot.appendItems($0.rows, toSection: $0.section)
-            }
-            
-            // NOTE: Validate sectionIdentifiers before applying snapshot
-            if snapshot.sectionIdentifiers.isEmpty {
-                self.collectionView.collectionViewLayout.invalidateLayout()
-            }
-            
-            self.dataSource.apply(snapshot, animatingDifferences: false)
-        }
-        
     }
 }
 
@@ -195,8 +109,8 @@ extension TVGuideMainView {
     /// - Section header or footer view
     /// - returns header or footer view
     func constructSupplementaryViewProvider() -> UICollectionViewDiffableDataSource.SupplementaryViewProvider {
-        { _ , kind, indexPath in
-            guard let view = self.collectionView.dequeueReusableSupplementaryView(
+        { [weak self] _ , kind, indexPath in
+            guard let self = self, let view = self.collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: "HeaderView",
                 for: indexPath
@@ -204,21 +118,13 @@ extension TVGuideMainView {
             else {
                 fatalError("could not dequeue reusable supplementaryView view of type: \(HeaderView.self)")
             }
-            var count = 0
-            for channel in self.channelProgramMapper {
-                let frame = CGRect(
-                    x: 0,
-                    y: CGFloat(count) * 60 + 8,
-                    width: 120,
-                    height: 52
-                )
-                let headerInnerView = HeaderInnerView(frame: frame)
+            let headers = self.model?.headers ?? []
+            headers.forEach {
+                let headerInnerView = HeaderInnerView(frame: $0.frame)
                 headerInnerView.constructSubviewLayoutConstraints()
-                headerInnerView.label.text = self.channelIDNameMapper[channel.key]
+                headerInnerView.label.text = $0.model.channel
                 headerInnerView.backgroundColor = .systemGroupedBackground
-                
                 view.addSubview(headerInnerView)
-                count += 1
             }
             return view
         }
@@ -261,6 +167,7 @@ extension TVGuideMainView {
     ///  - items: represents array of section and rows
     struct Model: Equatable, Hashable {
         var items: [Items]
+        var headers: [Header]
     }
 
     /// - Items
@@ -270,6 +177,11 @@ extension TVGuideMainView {
     struct Items: Equatable, Hashable {
         var section: Section?
         var rows: [Row]
+    }
+    
+    struct Header: Equatable, Hashable {
+        var frame: CGRect
+        var model: HeaderView.Model
     }
 
     /// - Section
@@ -287,75 +199,9 @@ extension TVGuideMainView {
     }
 }
 
-extension TVGuideMainView.Model {
-    static var mock: Self {
-        .init(
-            items: [
-                .init(
-                    section: .header(.init()),
-                    rows: [
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga3")),
-                        .program(.init(programName: "La Liga4")),
-                        .program(.init(programName: "La Liga5")),
-                        .program(.init(programName: "La Liga6")),
-                        .program(.init(programName: "La Liga7")),
-                        .program(.init(programName: "La Liga8")),
-                        .program(.init(programName: "La Liga9")),
-                        .program(.init(programName: "La Liga10")),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description)),
-                        .program(.init(programName: "La Liga1" + (1...10000).randomElement()!.description))
-                    ]
-                )
-            ]
-        )
+extension CGRect: Hashable {
+    /// Not a good algo, but it works for now in this limited time project
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine((1...1000).randomElement().debugDescription)
     }
-}
-
-
-struct ChannelModel: Decodable {
-    let orderNum: Int
-    let accessNum: Int
-    let CallSign: String
-    let id: Int
-}
-
-struct ProgramModel: Hashable, Decodable {
-    struct RecentAirTime: Hashable, Decodable {
-        let id: Int
-        let channelID: Int
-    }
-    let startTime: String
-    let recentAirTime: RecentAirTime
-    let length: Int
-    let name: String
 }

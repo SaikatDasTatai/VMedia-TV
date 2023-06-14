@@ -34,6 +34,7 @@ class TVGuideCoordinator: Coordinator, TVGuideCoordinatable {
         /// Write the routing logic
         let viewController = TVGuideViewController(modelPublisher: eventPublisher)
         presenter.pushViewController(viewController, animated: true)
+        loadTVGuide()
         
     }
 }
@@ -41,10 +42,13 @@ class TVGuideCoordinator: Coordinator, TVGuideCoordinatable {
 extension TVGuideCoordinator {
     func loadTVGuide() {
         Task {
-            let result: Result<ChannelModel, NetworkError> = await dataSource.fetchDetails(
+            let channelResult: Result<[ChannelModel], NetworkError> = await dataSource.fetchDetails(
                 urlRequest: .channelsAPI
             )
-            eventPublisher.value = .init(dataSource: result)
+            let programResult: Result<[ProgramModel], NetworkError> = await dataSource.fetchDetails(
+                urlRequest: .programsAPI
+            )
+            eventPublisher.value = .init(channelResult: channelResult, programResult: programResult)
         }
     }
 }
