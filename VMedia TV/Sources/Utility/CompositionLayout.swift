@@ -32,6 +32,7 @@ extension NSCollectionLayoutSection {
         NSCollectionLayoutSection {
             
             let item = NSCollectionLayoutItem(layoutSize: .itemSize)
+            item.contentInsets = .init(top: Spacing.space8, leading: .zero, bottom: .zero, trailing: .zero)
             
             var groups: [NSCollectionLayoutGroup] = []
             for _ in 0..<1 {
@@ -94,7 +95,7 @@ extension NSCollectionLayoutBoundarySupplementaryItem {
             layoutSize: headerLayoutSize,
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .leading,
-            absoluteOffset: CGPoint(x: -Spacing.headerCellSize.width, y: 0)
+            absoluteOffset: CGPoint(x: -Spacing.itemCellSize.width, y: 0)
         )
         header.pinToVisibleBounds = true
         header.zIndex = 2
@@ -106,7 +107,7 @@ extension NSCollectionLayoutBoundarySupplementaryItem {
 extension NSDirectionalEdgeInsets {
     static func defaultInsets(
         top: CGFloat = Spacing.zero,
-        leading: CGFloat = Spacing.itemCellSize.width,
+        leading: CGFloat = Spacing.headerCellSize.width+Spacing.space8,
         bottom: CGFloat = Spacing.zero,
         trailing: CGFloat = Spacing.zero
     ) -> NSDirectionalEdgeInsets {

@@ -35,7 +35,7 @@ class TVGuideMainView: BaseView {
         // Style collection view
         apply(collectionView) { [weak self] in
             $0.bounces = false
-            $0.backgroundColor = .blue
+            $0.backgroundColor = .systemBlue
             $0.showsVerticalScrollIndicator = false
             $0.showsHorizontalScrollIndicator = false
             $0.registerCell(ProgramViewCell.self)
@@ -87,6 +87,37 @@ class TVGuideMainView: BaseView {
         }
         
         dataSource.apply(snapshot, animatingDifferences: false)
+        var channels: [ChannelModel] = []
+        var programs: [ProgramModel] = []
+        let group = DispatchGroup()
+        group.enter()
+        URLSession.shared.fetchData(url: URL(string: "https://demo-c.cdn.vmedia.ca/json/Channels")!) { result in
+            switch result {
+            case .success(let models):
+                channels = models
+                group.leave()
+            case .failure(let error):
+                channels = []
+                group.leave()
+            }
+        }
+        group.enter()
+        URLSession.shared.fetchData(url: URL(string: "https://demo-c.cdn.vmedia.ca/json/ProgramItems")!) { result in
+            switch result {
+            case .success(let models):
+                programs = models
+                group.leave()
+            case .failure(let error):
+                programs = []
+                group.leave()
+            }
+        }
+
+        group.notify(queue: .main) {
+            print("Done")
+            
+        }
+        
     }
 }
 
@@ -105,7 +136,20 @@ extension TVGuideMainView {
             else {
                 fatalError("could not dequeue reusable supplementaryView view of type: \(HeaderView.self)")
             }
-            view.model = .init(channel: "Fox" + (1...10000).randomElement()!.description)
+            for index in 0..<15 {
+                let frame = CGRect(
+                    x: 0,
+                    y: CGFloat(index) * 60 + 8,
+                    width: 120,
+                    height: 52
+                )
+                let headerInnerView = HeaderInnerView(frame: frame)
+                headerInnerView.constructSubviewLayoutConstraints()
+                headerInnerView.label.text = "Channels"
+                headerInnerView.backgroundColor = .systemGroupedBackground
+                
+                view.addSubview(headerInnerView)
+            }
             return view
         }
     }
@@ -225,4 +269,64 @@ extension TVGuideMainView.Model {
             ]
         )
     }
+}
+
+
+
+extension URLSession {
+    func fetchData(url: URL, completionHandler: @escaping (Result<[ChannelModel], Error>)->()) {
+        dataTask(with: url) { data, response, error in
+            if let error = error {
+                completionHandler(.failure(error))
+            }
+            
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let models = try decoder.decode([ChannelModel].self, from: data)
+                    completionHandler(.success(models))
+                } catch let error {
+                    completionHandler(.failure(error))
+                }
+                
+            }
+        }.resume()
+    }
+    
+    func fetchData(url: URL, completionHandler: @escaping (Result<[ProgramModel], Error>)->()) {
+        dataTask(with: url) { data, response, error in
+            if let error = error {
+                completionHandler(.failure(error))
+            }
+            
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let models = try decoder.decode([ProgramModel].self, from: data)
+                    completionHandler(.success(models))
+                } catch let error {
+                    completionHandler(.failure(error))
+                }
+                
+            }
+        }.resume()
+    }
+}
+
+struct ChannelModel: Decodable {
+    let orderNum: Int
+    let accessNum: Int
+    let CallSign: String
+    let id: Int
+}
+
+struct ProgramModel: Hashable, Decodable {
+    struct RecentAirTime: Hashable, Decodable {
+        let id: Int
+        let channelID: Int
+    }
+    let startTime: String
+    let recentAirTime: RecentAirTime
+    let length: Int
+    let name: String
 }
