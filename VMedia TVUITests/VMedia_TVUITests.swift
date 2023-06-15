@@ -9,6 +9,8 @@ import XCTest
 
 final class VMedia_TVUITests: XCTestCase {
 
+    // TODO: We should write one sanity test , with most important flow to work as it is
+    // Top of that we can use snapshot testing to compare pixel wise and to track constraints break
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 

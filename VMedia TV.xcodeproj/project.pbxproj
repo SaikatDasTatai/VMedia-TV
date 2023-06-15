@@ -15,6 +15,9 @@
 		BD7455E22A3A3CD700E1EB04 /* TVGuidePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455E12A3A3CD700E1EB04 /* TVGuidePresentation.swift */; };
 		BD7455E42A3A3FD700E1EB04 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455E32A3A3FD700E1EB04 /* URLRequest+Extension.swift */; };
 		BD7455E72A3A443500E1EB04 /* TVGuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455E62A3A443500E1EB04 /* TVGuideModel.swift */; };
+		BD7455EF2A3AE1FF00E1EB04 /* ProgramViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455EE2A3AE1FF00E1EB04 /* ProgramViewCell.swift */; };
+		BD7455F12A3AE24800E1EB04 /* ProgramViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455F02A3AE24800E1EB04 /* ProgramViewTests.swift */; };
+		BD7455F42A3AE33C00E1EB04 /* ProgramViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7455F32A3AE33C00E1EB04 /* ProgramViewMock.swift */; };
 		BDCDC47D2A3465470077E99A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC47C2A3465470077E99A /* AppDelegate.swift */; };
 		BDCDC47F2A3465470077E99A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC47E2A3465470077E99A /* SceneDelegate.swift */; };
 		BDCDC4812A3465470077E99A /* TVGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC4802A3465470077E99A /* TVGuideViewController.swift */; };
@@ -65,6 +68,9 @@
 		BD7455E12A3A3CD700E1EB04 /* TVGuidePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGuidePresentation.swift; sourceTree = "<group>"; };
 		BD7455E32A3A3FD700E1EB04 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 		BD7455E62A3A443500E1EB04 /* TVGuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGuideModel.swift; sourceTree = "<group>"; };
+		BD7455EE2A3AE1FF00E1EB04 /* ProgramViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewCell.swift; sourceTree = "<group>"; };
+		BD7455F02A3AE24800E1EB04 /* ProgramViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewTests.swift; sourceTree = "<group>"; };
+		BD7455F32A3AE33C00E1EB04 /* ProgramViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewMock.swift; sourceTree = "<group>"; };
 		BDCDC4792A3465470077E99A /* VMedia TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VMedia TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCDC47C2A3465470077E99A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDCDC47E2A3465470077E99A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +165,63 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BD7455E82A3ADF7600E1EB04 /* TVGuide */ = {
+			isa = PBXGroup;
+			children = (
+				BD7455F22A3AE32800E1EB04 /* Mocks */,
+				BD7455EC2A3ADFA300E1EB04 /* View */,
+				BD7455EB2A3ADF9A00E1EB04 /* ViewController */,
+				BD7455EA2A3ADF9200E1EB04 /* Coordinator */,
+				BD7455E92A3ADF8900E1EB04 /* Presentation */,
+			);
+			path = TVGuide;
+			sourceTree = "<group>";
+		};
+		BD7455E92A3ADF8900E1EB04 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		BD7455EA2A3ADF9200E1EB04 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BD7455EB2A3ADF9A00E1EB04 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BD7455EC2A3ADFA300E1EB04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD7455ED2A3ADFAD00E1EB04 /* ProgramView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BD7455ED2A3ADFAD00E1EB04 /* ProgramView */ = {
+			isa = PBXGroup;
+			children = (
+				BD7455F02A3AE24800E1EB04 /* ProgramViewTests.swift */,
+			);
+			path = ProgramView;
+			sourceTree = "<group>";
+		};
+		BD7455F22A3AE32800E1EB04 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BD7455F32A3AE33C00E1EB04 /* ProgramViewMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		BDCDC4702A3465470077E99A = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +258,7 @@
 		BDCDC4922A3465490077E99A /* VMedia TVTests */ = {
 			isa = PBXGroup;
 			children = (
+				BD7455E82A3ADF7600E1EB04 /* TVGuide */,
 				BDCDC4932A3465490077E99A /* VMedia_TVTests.swift */,
 			);
 			path = "VMedia TVTests";
@@ -322,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				BDCDC4C82A3498130077E99A /* ProgramView.swift */,
+				BD7455EE2A3AE1FF00E1EB04 /* ProgramViewCell.swift */,
 			);
 			path = ProgramView;
 			sourceTree = "<group>";
@@ -475,6 +540,7 @@
 			files = (
 				BD7455DD2A3A135900E1EB04 /* OrchestrationClient.swift in Sources */,
 				BDCDC4C42A3491D90077E99A /* ApplyFunction.swift in Sources */,
+				BD7455EF2A3AE1FF00E1EB04 /* ProgramViewCell.swift in Sources */,
 				BDCDC4D32A34DF280077E99A /* UICollectionReusableView.swift in Sources */,
 				BDCDC4B82A347B900077E99A /* BaseViewController.swift in Sources */,
 				BDCDC4BD2A3486FE0077E99A /* NSLayoutConstraint+Extension.swift in Sources */,
@@ -505,6 +571,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDCDC4942A3465490077E99A /* VMedia_TVTests.swift in Sources */,
+				BD7455F42A3AE33C00E1EB04 /* ProgramViewMock.swift in Sources */,
+				BD7455F12A3AE24800E1EB04 /* ProgramViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

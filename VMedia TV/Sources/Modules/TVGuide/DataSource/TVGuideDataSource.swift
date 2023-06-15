@@ -31,7 +31,7 @@ final class TVGuideDataSource {
     }
 }
 
-// MARK: - HubDataSourceAPI
+// MARK: - TVGuideDataSourceAPI
 
 extension TVGuideDataSource: TVGuideDataSourceAPI {
     /// Fetch TVGuide Data

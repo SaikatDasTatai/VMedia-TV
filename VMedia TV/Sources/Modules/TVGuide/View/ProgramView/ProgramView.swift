@@ -76,35 +76,24 @@ extension ProgramView {
         var broadCastTime: String?
     }
 }
-
-class ProgramViewCell: BaseCollectionViewCell {
-    lazy var view = ProgramView()
-
-    var model: ProgramView.Model? {
-        didSet {
-            view.model = model
+/// To show the potential of unit test
+/// How to test private fields
+/// For the sake of time only implementing for this View
+/// THough best practice is to cover more than `90%` for Each `PR` we raise
+#if DEBUG
+extension ProgramView {
+    var testHooks: TestHooks { .init(target: self) }
+    
+    struct TestHooks {
+        let target: ProgramView
+        
+        var title: String? {
+            target.titleLabel.text
+        }
+        
+        var subTitle: String? {
+            target.subTitleLabel.text
         }
     }
-    
-    override func constructSubviewHierarchy() {
-        super.constructSubviewHierarchy()
-        // Add view to contentView hierarchy.
-        contentView.addAutoLayoutSubview(view)
-    }
-
-    override func constructSubviewLayoutConstraints() {
-        super.constructSubviewLayoutConstraints()
-        // Add constraints to collection view Cell
-        NSLayoutConstraint.activate(
-            view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            view.topAnchor.constraint(equalTo: contentView.topAnchor),
-            view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        )
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        model = nil
-    }
 }
+#endif
