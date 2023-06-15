@@ -49,3 +49,8 @@ Contributions to the TV Guide App are welcome! If you would like to contribute, 
 ## Acknowledgments
 
 - Thanks for providing me this assignment opportunity. I really!! enjoyed it.
+
+## Demo
+
+https://github.com/SaikatDasTatai/VMedia-TV/assets/29250552/fdc4640c-3e54-4eb0-a073-bddbcc86a5ce
+
