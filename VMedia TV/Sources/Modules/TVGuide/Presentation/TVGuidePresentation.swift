@@ -65,7 +65,8 @@ extension TVGuideMainView.Model {
                 rows.append(
                     .program(
                         .init(
-                            programName: channelProgramMapper[key]?.first?.name ?? ""
+                            programName: channelProgramMapper[key]?.first?.name ?? "",
+                            broadCastTime: (channelProgramMapper[key]?.first?.startTime ?? "").changeToDateFormat
                         )
                     )
                 )
@@ -84,9 +85,9 @@ extension TVGuideMainView.Model {
         for channel in channelProgramMapper {
             let frame = CGRect(
                 x: 0,
-                y: CGFloat(count) * 60 + 8,
+                y: CGFloat(count) * 100 + 8,
                 width: 120,
-                height: 52
+                height: 92
             )
             headers.append(.init(frame: frame, model: .init(
                 channel: channelIDNameMapper[channel.key]
@@ -95,5 +96,23 @@ extension TVGuideMainView.Model {
         }
         
         self.headers = headers
+    }
+}
+
+extension String {
+    var changeToDateFormat: Self {
+        let dateFormatter = DateFormatter()
+        // save locale temporarily
+        let tempLocale = dateFormatter.locale
+        // set locale to reliable US_POSIX
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:SSSZ"
+        guard let date = dateFormatter.date(from: self) else { return "" }
+        
+        //"dd-MM-yyyy HH:mm:ss"
+        dateFormatter.dateFormat = "MMM d, yyyy HH:mm a" ;
+        dateFormatter.locale = tempLocale
+        let dateString = dateFormatter.string(from: date)
+        return dateString
     }
 }

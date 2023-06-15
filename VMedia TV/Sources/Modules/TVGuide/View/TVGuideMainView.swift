@@ -26,7 +26,7 @@ class TVGuideMainView: BaseView {
     /// represents vertical scrolling collection View
     private lazy var collectionView = UICollectionView(
         frame: .zero,
-        collectionViewLayout: CompositionLayout() // Default `init`
+        collectionViewLayout: CompositionLayout()
     )
     
     var model: Model? {
@@ -43,7 +43,7 @@ class TVGuideMainView: BaseView {
         // Style collection view
         apply(collectionView) { [weak self] in
             $0.bounces = false
-            $0.backgroundColor = .systemBlue
+            $0.backgroundColor = .systemGroupedBackground
             $0.showsVerticalScrollIndicator = false
             $0.showsHorizontalScrollIndicator = false
             $0.registerCell(ProgramViewCell.self)
@@ -95,6 +95,8 @@ extension TVGuideMainView {
         }
         
         // NOTE: Validate sectionIdentifiers before applying snapshot
+        customLayout = CompositionLayout(noOfRows: CGFloat(model.headers.count))
+        collectionView.collectionViewLayout = customLayout
         if snapshot.sectionIdentifiers.isEmpty {
             self.collectionView.collectionViewLayout.invalidateLayout()
         }
@@ -123,7 +125,6 @@ extension TVGuideMainView {
                 let headerInnerView = HeaderInnerView(frame: $0.frame)
                 headerInnerView.constructSubviewLayoutConstraints()
                 headerInnerView.label.text = $0.model.channel
-                headerInnerView.backgroundColor = .systemGroupedBackground
                 view.addSubview(headerInnerView)
             }
             return view

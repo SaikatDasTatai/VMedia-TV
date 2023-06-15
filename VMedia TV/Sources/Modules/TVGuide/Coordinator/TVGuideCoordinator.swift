@@ -33,6 +33,7 @@ class TVGuideCoordinator: Coordinator, TVGuideCoordinatable {
     override func start() {
         /// Write the routing logic
         let viewController = TVGuideViewController(modelPublisher: eventPublisher)
+        viewController.title = Text.title
         presenter.pushViewController(viewController, animated: true)
         loadTVGuide()
         
@@ -50,5 +51,12 @@ extension TVGuideCoordinator {
             )
             eventPublisher.value = .init(channelResult: channelResult, programResult: programResult)
         }
+    }
+}
+
+/// To have all the string in one place
+extension TVGuideCoordinator {
+    enum Text {
+        static let title = "VMedia TV Guide"
     }
 }

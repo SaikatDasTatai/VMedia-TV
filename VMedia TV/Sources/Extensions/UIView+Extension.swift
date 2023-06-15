@@ -29,3 +29,22 @@ extension UIView {
         String(describing: self)
     }
 }
+
+extension UIView {
+    /// The perfect way to round corners for a UIView. After invoking this method, the corners of your view will
+    public func roundCorners(corners: UIRectCorner = .allCorners, radius: CGFloat = 38.5) {
+        clipsToBounds = true
+        layer.cornerRadius = radius
+        layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
+    }
+    /// Applies the drop shadow style for a view
+    public func applyDropShadowStyle(withOffset offset: CGSize, opacity: Float, radius: CGFloat, color: UIColor) {
+        layer.masksToBounds = false
+        layer.shadowColor = color.cgColor
+        layer.shadowOffset = offset
+        layer.shadowOpacity = opacity
+        layer.shadowRadius = radius
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
+    }
+}

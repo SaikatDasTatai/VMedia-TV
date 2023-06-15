@@ -8,20 +8,6 @@
 import UIKit
 
 class HeaderView: UICollectionReusableView {
-//    var model: Model? {
-//        didSet {
-//            guard let model else { return }
-//
-//            applyModel(model: model)
-//        }
-//    }
-//    private let titleLabel = UILabel()
-//    override func constructView() {
-//        super.constructView()
-//
-//        backgroundColor = .white
-//    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -29,28 +15,6 @@ class HeaderView: UICollectionReusableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    override func constructSubviewHierarchy() {
-//        super.constructSubviewHierarchy()
-//
-//        // Add collection view to view sub-hierarchy
-//        //addAutoLayoutSubview(titleLabel)
-//    }
-    
-//    override func constructSubviewLayoutConstraints() {
-//        super.constructSubviewLayoutConstraints()
-//        // Add constraints
-////        NSLayoutConstraint.activate(
-////            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-////            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-////            titleLabel.topAnchor.constraint(equalTo: topAnchor),
-////            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
-////        )
-//    }
-//    
-//    func applyModel(model: Model) {
-//        titleLabel.text = model.channel
-//    }
 }
 
 // MARK: - Model
@@ -75,16 +39,20 @@ class HeaderInnerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func constructSubviewLayoutConstraints() {
      
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
+        label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 16)
+        backgroundColor = .systemBlue
+        roundCorners(corners: [.topRight, .bottomRight], radius: Spacing.space8)
+        applyDropShadowStyle(withOffset: .zero, opacity: 0.15, radius: 2, color: .black)
         NSLayoutConstraint.activate(
-            label.leadingAnchor.constraint(equalTo: leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.topAnchor.constraint(equalTo: topAnchor),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor)
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.space4),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Spacing.space4),
+            label.topAnchor.constraint(equalTo: topAnchor, constant: Spacing.space4),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Spacing.space4)
         )
     }
 }

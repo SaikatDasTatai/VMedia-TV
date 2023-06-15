@@ -8,8 +8,8 @@
 import UIKit
 
 class CompositionLayout: UICollectionViewCompositionalLayout {
-    init() {
-        super.init(section: .automaticLayoutDimensions())
+    init(noOfRows: CGFloat = .zero) {
+        super.init(section: .automaticLayoutDimensions(noOfRows: noOfRows))
     }
 
     init<Section: Hashable, Row: Hashable>(dataSource: UICollectionViewDiffableDataSource<Section, Row>) {
@@ -27,7 +27,8 @@ class CompositionLayout: UICollectionViewCompositionalLayout {
 extension NSCollectionLayoutSection {
     static func automaticLayoutDimensions(
         insets: NSDirectionalEdgeInsets = .defaultInsets(),
-        interItemSpacing: CGFloat = Spacing.space8
+        interItemSpacing: CGFloat = Spacing.space8,
+        noOfRows: CGFloat = 0
     ) ->
         NSCollectionLayoutSection {
             
@@ -45,7 +46,7 @@ extension NSCollectionLayoutSection {
             
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .absolute(Spacing.itemCellSize.width),
-                heightDimension: .absolute(Spacing.itemCellSize.height*29)
+                heightDimension: .absolute(Spacing.itemCellSize.height*noOfRows)
             )
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: groupSize,
@@ -56,7 +57,7 @@ extension NSCollectionLayoutSection {
             section.contentInsets = insets
 
         // Header Supplimentary View
-        section.boundarySupplementaryItems = [.header]
+            section.boundarySupplementaryItems = [.header(rows: noOfRows)]
         section.orthogonalScrollingBehavior = .continuous
 
         return section
@@ -86,10 +87,10 @@ extension NSCollectionLayoutSize {
 }
 
 extension NSCollectionLayoutBoundarySupplementaryItem {
-    static var header: Self {
+    static func header(rows: CGFloat = .zero) -> Self {
         let headerLayoutSize = NSCollectionLayoutSize(
             widthDimension: .absolute(Spacing.headerCellSize.width),
-            heightDimension: .absolute(29 * Spacing.headerCellSize.height)
+            heightDimension: .absolute(rows * Spacing.headerCellSize.height)
         )
         let header: Self = .init(
             layoutSize: headerLayoutSize,
@@ -129,6 +130,6 @@ struct Spacing {
     static let zero: CGFloat = 0
     static let space8: CGFloat = 8
     static let space16: CGFloat = 16
-    static let headerCellSize: Size = .init(height: 60, width: 120)
-    static let itemCellSize: Size = .init(height: 60, width: 140)
+    static let headerCellSize: Size = .init(height: 100, width: 120)
+    static let itemCellSize: Size = .init(height: 100, width: 200)
 }
