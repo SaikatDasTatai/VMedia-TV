@@ -84,10 +84,10 @@ extension TVGuideMainView.Model {
         var headers: [TVGuideMainView.Header] = []
         for channel in channelProgramMapper {
             let frame = CGRect(
-                x: 0,
-                y: CGFloat(count) * 100 + 8,
-                width: 120,
-                height: 92
+                x: .zero,
+                y: CGFloat(count) * Spacing.headerCellSize.height + Spacing.space8,
+                width: Spacing.headerCellSize.width,
+                height: Spacing.headerCellSize.height - Spacing.space8
             )
             headers.append(.init(frame: frame, model: .init(
                 channel: channelIDNameMapper[channel.key]
